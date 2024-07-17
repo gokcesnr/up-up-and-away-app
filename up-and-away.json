@@ -1,0 +1,92 @@
+{
+  "uuid": "2d36ee34-7473-4c21-a070-522645f2ec93",
+  "lastMigration": 32,
+  "name": "Up and away",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "add1c21e-c106-4dea-890e-b6279477eb8b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "flights",
+      "responses": [
+        {
+          "uuid": "ac475811-07e2-4588-a021-345b0748b272",
+          "body": "  [\r\n  {\r\n    \"id\": 1,\r\n    \"departure\": \"New York\",\r\n    \"landing\": \"Los Angeles\",\r\n    \"flightDate\": \"2024-07-12\",\r\n    \"flightDuration\": \"6\",\r\n    \"departureTime\": \"08:00\",\r\n    \"landingTime\": \"14:00\"\r\n  },\r\n  {\r\n    \"id\": 2,\r\n    \"departure\": \"Los Angeles\",\r\n    \"landing\": \"New York\",\r\n    \"flightDate\": \"2024-07-13\",\r\n    \"flightDuration\": \"6\",\r\n    \"departure-Time\": \"11:00\",\r\n    \"landingTime\": \"17:00\"\r\n  },\r\n  {\r\n    \"id\": 3,\r\n    \"departure\": \"Chicago\",\r\n    \"landing\": \"Miami\",\r\n    \"flighDate\": \"2024-07-14\",\r\n    \"flightDuration\": \"3\",\r\n    \"departureTime\": \"09:00\",\r\n    \"landingTime\": \"12:00\"\r\n  },\r\n  {\r\n    \"id\": 4,\r\n    \"departure\": \"Miami\",\r\n    \"landing\": \"Chicago\",\r\n    \"flightDate\": \"2024-07-15\",\r\n    \"flightDuration\": \"3\",\r\n    \"departureTime\": \"13:00\",\r\n    \"landingTime\": \"16:00\"\r\n  },\r\n  {\r\n    \"id\": 5,\r\n    \"departure\": \"Houston\",\r\n    \"landing\": \"New York\",\r\n    \"flightDate\": \"2024-07-16\",\r\n    \"flightDuration\": \"4\",\r\n    \"departureTime\": \"07:00\",\r\n    \"landingTime\": \"11:00\"\r\n  },\r\n  {\r\n    \"id\": 6,\r\n    \"departure\": \"New York\",\r\n    \"landing\": \"Houston\",\r\n    \"flightDate\": \"2024-07-17\",\r\n    \"flightDuration\": \"4\",\r\n    \"departureTime\": \"14:00\",\r\n    \"landingTime\": \"18:00\"\r\n  },\r\n  {\r\n    \"id\": 7,\r\n    \"departure\": \"Los Angeles\",\r\n    \"landing\": \"Chicago\",\r\n    \"flightDate\": \"2024-07-18\",\r\n    \"flightDuration\": \"4\",\r\n    \"departureTime\": \"11:00\",\r\n    \"landingTime\": \"15:00\"\r\n  },\r\n  {\r\n    \"id\": 8,\r\n    \"departure\": \"Chicago\",\r\n    \"landing\": \"Los Angeles\",\r\n    \"flightDate\": \"2024-07-19\",\r\n    \"flightDuration\": \"4\",\r\n    \"departureTime\": \"16:00\",\r\n    \"landingTime\": \"20:00\"\r\n  },\r\n  {\r\n    \"id\": 9,\r\n    \"departure\": \"Miami\",\r\n    \"landing\": \"Houston\",\r\n    \"flightDate\": \"2024-07-20\",\r\n    \"flightDuration\": \"2\",\r\n    \"departureTime\": \"06:00\",\r\n    \"landingTime\": \"08:00\"\r\n  },\r\n  {\r\n    \"id\": 10,\r\n    \"departure\": \"Houston\",\r\n    \"landing\": \"Miami\",\r\n    \"flightDate\": \"2024-07-21\",\r\n    \"flightDuration\": \"2\",\r\n    \"departureTime\": \"17:00\",\r\n    \"landingTime\": \"19:00\"\r\n  }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "add1c21e-c106-4dea-890e-b6279477eb8b"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

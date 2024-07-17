@@ -1,0 +1,23 @@
+.btn{
+    position: left;
+}
+
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.tool-bar{
+    background-color: #80C4E9;
+    color: #FFF6E9;
+
+}
+
+.centered-container{
+    position: absolute;
+    left: 43%;
+    font-size: x-large;
+    font-weight: 1000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}

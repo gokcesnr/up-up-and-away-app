@@ -1,0 +1,34 @@
+<h3 class="header text-center my-3">Available Flights</h3>
+<div class="container">
+  <div *ngIf="flights && flights.length > 0">
+    <div *ngFor="let flight of flights">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Departure: {{ flight.departure }} --  Landing: {{ flight.landing }}</mat-card-title>
+          <mat-card-subtitle> <p>Date: {{ flight.flightDate }}</p>
+            <p>Duration: {{ flight.flightDuration }} hours</p>
+            <p>Departure Time: {{ flight.departureTime }}</p>
+            <p>Landing Time: {{ flight.landingTime }}</p> </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+          <button mat-button>Buy Ticket</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div *ngIf="!flights || flights.length === 0">
+    <p>No flights available.</p>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="filteredFlights.length > 0">
+    <h2>Available Flights:</h2>
+    <ul>
+      <li *ngFor="let flight of filteredFlights">{{ flight.flight }}</li>
+    </ul>
+  </div>
+  <div *ngIf="filteredFlights.length === 0">
+    <p>No flights available for the selected city and date.</p>
+  </div>
+   -->

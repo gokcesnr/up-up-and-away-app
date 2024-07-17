@@ -1,0 +1,23 @@
+<div class="pic-container">
+    <img  src="assets/plane5.png" alt="plane image" class="responsive-image">
+</div>
+<div class="container">
+    <form [formGroup]="flightSearchForm" (ngSubmit)="onSubmit()">
+        <div class="form-container">
+            <label for="destination" class="label form-label">Destination City:</label>
+            <br>
+            <input type="text" name="destination" id="destination" placeholder="Where To?" formControlName="city">
+        </div>
+        <div class="form-container">
+            <label for="date" class="label form-label">Take Off Date:  </label>
+            <br>
+            <input type="date" id="date" name="date" formControlName="date">
+        </div>
+        <div class="form-container">
+            <button class="button" type="submit">
+                Search
+            </button>
+        </div>
+
+    </form>
+    </div>
