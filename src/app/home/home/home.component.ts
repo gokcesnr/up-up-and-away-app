@@ -2,9 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { FlightService } from 'src/app/flight.service';
 import { Flight } from 'src/app/models/flight';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { catchError } from 'rxjs';
-import { of } from 'rxjs';
-
 
 @Component({
   selector: 'app-home',
@@ -24,45 +21,26 @@ export class HomeComponent implements OnInit{
     });
   }
 
+  ngOnInit(): void {}
+
   onSearch(){
     if(this.searchForm.valid){
       const{ landing, date } = this.searchForm.value;
       this.flightService.filteredFlights(landing, date).subscribe(
         (flights: Flight[]) => {
-          this.flights = flights
+          this.flights = flights;
+          this.errorMessage = null;
         },
         (error) => {
           console.error('Error fetching flights', error);
+          this.errorMessage = 'Error fetching flights';
         }
       );
     }
     else{
       console.log('No Available Flights.');
+      this.errorMessage = 'No Available Flights.';
     }
   }
-
-
- /*  searchCriteria = {
-    landing: '',
-    date: ''
-  }; 
-
-  flights: Flight [] = [];
-
-   constructor(private flightService: FlightService) {
-    
-  }  
-
-  onSearch(){
-    const {landing, date} = this.searchCriteria;
-    this.flightService.fetchFlights(landing, date).subscribe((data: Flight[]) => {
-      this.flights = data;
-    });
-  } */
-
-
-ngOnInit(): void {
-  }
-
 
 }
