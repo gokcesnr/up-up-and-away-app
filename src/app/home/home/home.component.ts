@@ -13,8 +13,7 @@ export class HomeComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.flightSearchForm = this.fb.group({
-      city: [''],
-      date: ['']
+      city: ['']
     });
   }  
 
@@ -25,4 +24,6 @@ ngOnInit(): void {
     const { city, date } = this.flightSearchForm.value;
     this.router.navigate(['/flights'], { queryParams: { city, date } });
   }
+
+
 }
