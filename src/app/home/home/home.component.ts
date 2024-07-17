@@ -1,6 +1,10 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FlightService } from 'src/app/flight.service';
+import { Flight } from 'src/app/models/flight';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { catchError } from 'rxjs';
+import { of } from 'rxjs';
+
 
 @Component({
   selector: 'app-home',
@@ -9,20 +13,55 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
-  flightSearchForm: FormGroup;
+  searchForm: FormGroup;
+  flights: Flight[] = [];
+  errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.flightSearchForm = this.fb.group({
-      city: ['']
+  constructor(private flightService: FlightService){
+    this.searchForm = new FormGroup({
+      landing: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
     });
-  }  
-
-ngOnInit(): void {
   }
 
-  onSubmit(): void {
-    const { city, date } = this.flightSearchForm.value;
-    this.router.navigate(['/flights'], { queryParams: { city, date } });
+  onSearch(){
+    if(this.searchForm.valid){
+      const{ landing, date } = this.searchForm.value;
+      this.flightService.filteredFlights(landing, date).subscribe(
+        (flights: Flight[]) => {
+          this.flights = flights
+        },
+        (error) => {
+          console.error('Error fetching flights', error);
+        }
+      );
+    }
+    else{
+      console.log('No Available Flights.');
+    }
+  }
+
+
+ /*  searchCriteria = {
+    landing: '',
+    date: ''
+  }; 
+
+  flights: Flight [] = [];
+
+   constructor(private flightService: FlightService) {
+    
+  }  
+
+  onSearch(){
+    const {landing, date} = this.searchCriteria;
+    this.flightService.fetchFlights(landing, date).subscribe((data: Flight[]) => {
+      this.flights = data;
+    });
+  } */
+
+
+ngOnInit(): void {
   }
 
 

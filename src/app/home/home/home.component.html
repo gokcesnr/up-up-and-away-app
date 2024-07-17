@@ -2,11 +2,11 @@
     <img  src="assets/plane5.png" alt="plane image" class="responsive-image">
 </div>
 <div class="container">
-    <form [formGroup]="flightSearchForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="searchForm">
         <div class="form-container">
             <label for="destination" class="label form-label">Destination City:</label>
             <br>
-            <input type="text" name="destination" id="destination" placeholder="Where To?" formControlName="city">
+            <input type="text" name="destination" id="landing" placeholder="Where To?" formControlName="city">
         </div>
         <div class="form-container">
             <label for="date" class="label form-label">Take Off Date:  </label>
@@ -14,25 +14,48 @@
             <input type="date" id="date" name="date" formControlName="date">
         </div>
         <div class="form-container">
-            <button class="button" type="submit">
+            <button class="button" type="button" (click)="onSearch()" [disabled]="!searchForm.valid">
                 Search
             </button>
         </div>
-
     </form>
     </div>
 
-    <!-- <div *ngIf="filteredFlights.length > 0">
-    <h2>Available Flights:</h2>
-    <ul>
-      <li *ngFor="let flight of filteredFlights">{{ flight.flight }}</li>
-    </ul>
-  </div>
-  <div *ngIf="filteredFlights.length === 0">
-    <p>No flights available for the selected city and date.</p>
-  </div>
-   -->
+    
+    <div *ngIf="flights.length > 0">
+        <h2>Available Flights</h2>
+        <ul>
+          <li *ngFor="let flight of flights">
+            {{ flight.departure }} to {{ flight.landing }} on {{ flight.flightDate | date }} at {{ flight.departureTime }}
+          </li>
+        </ul>
+      </div>
+      
+
+
+ <!--    <div class="container container2">
+        <div *ngIf="flights && flights.length > 0">
+          <div class="flight-card" *ngFor="let flight of flights">
+            <mat-card appearance="outlined">
+              <mat-card-header>
+                <mat-card-title class="">Departure: {{ flight.departure }} --  Landing: {{ flight.landing }}</mat-card-title>
+                <mat-card-subtitle> <p>Date: {{ flight.flightDate }}</p>
+                  <p>Duration: {{ flight.flightDuration }} hours</p>
+                  <p>Departure Time: {{ flight.departureTime }}</p>
+                  <p>Landing Time: {{ flight.landingTime }}</p> </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-actions align="end">
+                <button mat-button>Buy Ticket</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <div *ngIf="!flights || flights.length === 0">
+          <p>No flights available.</p>
+        </div>
+      </div> -->
   
+
 
     <div class="bot-container">
         <p class="copyright">© Up Up And Away Airlines</p>
