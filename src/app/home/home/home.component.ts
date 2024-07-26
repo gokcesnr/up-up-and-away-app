@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FlightService } from 'src/app/flight.service';
 import { Flight } from 'src/app/models/flight';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -8,39 +8,50 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
   searchForm: FormGroup;
-  flights: Flight[] = [];
+  allFlights: Flight[] = [];
+  filteredFlights: Flight[] = [];
   errorMessage: string | null = null;
 
-  constructor(private flightService: FlightService){
+  constructor(private flightService: FlightService) {
     this.searchForm = new FormGroup({
       landing: new FormControl('', Validators.required),
-      date: new FormControl('', Validators.required),
+      flightDate: new FormControl('', Validators.required), 
     });
   }
 
-  ngOnInit(): void {}
-
-  onSearch(){
-    if(this.searchForm.valid){
-      const{ landing, date } = this.searchForm.value;
-      this.flightService.filteredFlights(landing, date).subscribe(
-        (flights: Flight[]) => {
-          this.flights = flights;
-          this.errorMessage = null;
-        },
-        (error) => {
-          console.error('Error fetching flights', error);
-          this.errorMessage = 'Error fetching flights';
-        }
-      );
-    }
-    else{
-      console.log('No Available Flights.');
-      this.errorMessage = 'No Available Flights.';
-    }
+  ngOnInit(): void {
+   this.loadFlights();
   }
 
+  loadFlights() {
+    this.flightService.getFlights().subscribe({
+      next: (filteredFlights: Flight[]) => {
+        this.allFlights = filteredFlights;
+        this.filteredFlights = filteredFlights;  // Initialize flights with all available flights
+      },
+      error: (error: any) => {
+        console.error('Error fetching flights', error);
+        this.errorMessage = 'Error fetching flights';
+      }
+    });
+  }
+
+  onSearch() {
+    if (this.searchForm.valid) {
+      const { landing, flightDate } = this.searchForm.value;
+
+      // Filtering logic
+      this.filteredFlights = this.allFlights.filter(flight =>
+        flight.landing.toLowerCase().includes(landing.toLowerCase()) &&
+        (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true) // Add date filtering if required
+      );
+      this.errorMessage = null;
+    } else {
+      console.log('Please fill in the search criteria');
+      this.errorMessage = 'Please fill in the search criteria';
+    }
+  }
 }

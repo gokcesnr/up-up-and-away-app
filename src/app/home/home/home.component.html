@@ -6,7 +6,7 @@
         <div class="form-container">
             <label for="landing" class="label form-label">Destination City:</label>
             <br>
-            <input type="text" name="landing" id="landing" placeholder="Where To?" formControlName="city">
+            <input type="text" name="landing" id="landing" placeholder="Where To?" formControlName="landing">
         </div>
         <div class="form-container">
             <label for="flightDate" class="label form-label">Take Off Date:  </label>
@@ -22,41 +22,19 @@
     </div>
 
     
-    <div *ngIf="flights.length > 0">
+    <div *ngIf="filteredFlights.length > 0">
         <h2>Available Flights</h2>
         <ul>
-          <li *ngFor="let flight of flights">
+          <li *ngFor="let flight of filteredFlights">
             {{ flight.departure }} to {{ flight.landing }} on {{ flight.flightDate | date }} at {{ flight.departureTime }}
           </li>
         </ul>
       </div>
       
-
-
- <!--    <div class="container container2">
-        <div *ngIf="flights && flights.length > 0">
-          <div class="flight-card" *ngFor="let flight of flights">
-            <mat-card appearance="outlined">
-              <mat-card-header>
-                <mat-card-title class="">Departure: {{ flight.departure }} --  Landing: {{ flight.landing }}</mat-card-title>
-                <mat-card-subtitle> <p>Date: {{ flight.flightDate }}</p>
-                  <p>Duration: {{ flight.flightDuration }} hours</p>
-                  <p>Departure Time: {{ flight.departureTime }}</p>
-                  <p>Landing Time: {{ flight.landingTime }}</p> </mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-actions align="end">
-                <button mat-button>Buy Ticket</button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
-        </div>
-        <div *ngIf="!flights || flights.length === 0">
-          <p>No flights available.</p>
-        </div>
-      </div> -->
   
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-
+<!-- 
     <div class="bot-container">
         <p class="copyright">© Up Up And Away Airlines</p>
       </div>
+ -->

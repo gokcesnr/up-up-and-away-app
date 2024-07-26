@@ -16,12 +16,4 @@ export class FlightService {
   getFlights(): Observable<Flight[]> {
     return this.http.get<Flight[]>(this.apiUrl + "/flights");
   }
-
-    filteredFlights(landing: string, flightDate: Date): Observable<Flight[]>{
-      let params = new HttpParams();
-      params = params.append('landing', landing.toLowerCase());
-      params = params.append('flightDate', flightDate.toISOString());
-
-      return this.http.get<Flight[]>(this.apiUrl + "/flightsearch", {params});
-    }
-}
+} 

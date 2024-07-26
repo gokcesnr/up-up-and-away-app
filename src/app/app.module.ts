@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home/home.component';
 import { FlightListComponent } from './flights/flight-list/flight-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -34,7 +36,9 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent],
