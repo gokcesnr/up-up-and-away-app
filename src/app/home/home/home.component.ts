@@ -22,33 +22,27 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-   this.loadFlights();
-  }
-
-  loadFlights() {
-    this.flightService.getFlights().subscribe({
-      next: (filteredFlights: Flight[]) => {
-        this.allFlights = filteredFlights;
-        this.filteredFlights = filteredFlights;  // Initialize flights with all available flights
-      },
-      error: (error: any) => {
-        console.error('Error fetching flights', error);
-        this.errorMessage = 'Error fetching flights';
-      }
-    });
-  }
+  ngOnInit(): void { }
 
   onSearch() {
     if (this.searchForm.valid) {
       const { landing, flightDate } = this.searchForm.value;
 
-      // Filtering logic
-      this.filteredFlights = this.allFlights.filter(flight =>
-        flight.landing.toLowerCase().includes(landing.toLowerCase()) &&
-        (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true) // Add date filtering if required
+      this.flightService.getFlights().subscribe({
+        next: (flights: Flight[]) => {
+          this.allFlights = flights;
+          // Filtering logic
+          this.filteredFlights = this.allFlights.filter(flight =>
+            flight.landing.toLowerCase().includes(landing.toLowerCase()) &&
+            (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true) // Add date filtering if required
       );
       this.errorMessage = null;
+    },
+    error: (error: any) => {
+      console.error('Error fetching flights', error);
+      this.errorMessage = 'Error fetching flights';
+    }
+  });
     } else {
       console.log('Please fill in the search criteria');
       this.errorMessage = 'Please fill in the search criteria';

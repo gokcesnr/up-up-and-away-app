@@ -3,27 +3,28 @@
 <div class="container">
   <mat-form-field>
     <mat-label>Your Departure City</mat-label>
-    <mat-select disableRipple>
-      <mat-option value="1">New York</mat-option>
-      <mat-option value="2">Los Angeles</mat-option>
-      <mat-option value="3">Chicago</mat-option>
-      <mat-option value="4">Miami</mat-option>
-      <mat-option value="5">Houston</mat-option>
+    <mat-select (selectionChange)="onDepartureSelected($event.value)" disableRipple>
+      <mat-option value="New York">New York</mat-option>
+      <mat-option value="Los Angeles">Los Angeles</mat-option>
+      <mat-option value="Chicago">Chicago</mat-option>
+      <mat-option value="Miami">Miami</mat-option>
+      <mat-option value="Houston">Houston</mat-option>
     </mat-select>
   </mat-form-field>
-  
 </div>
 
 <div class="container container2">
-  <div *ngIf="flights && flights.length > 0">
-    <div class="flight-card" *ngFor="let flight of flights">
+  <div *ngIf="filteredFlights && filteredFlights.length > 0">
+    <div class="flight-card" *ngFor="let flight of filteredFlights">
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title class="">Departure: {{ flight.departure }} --  Landing: {{ flight.landing }}</mat-card-title>
-          <mat-card-subtitle> <p>Date: {{ flight.flightDate }}</p>
+          <mat-card-subtitle>
+            <p>Date: {{ flight.flightDate }}</p>
             <p>Duration: {{ flight.flightDuration }}</p>
             <p>Departure Time: {{ flight.departureTime }}</p>
-            <p>Landing Time: {{ flight.landingTime }}</p> </mat-card-subtitle>
+            <p>Landing Time: {{ flight.landingTime }}</p>
+          </mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions align="end">
           <button mat-button>Buy Ticket</button>
@@ -31,7 +32,7 @@
       </mat-card>
     </div>
   </div>
-  <div *ngIf="!flights || flights.length === 0">
+  <div *ngIf="!filteredFlights || filteredFlights.length === 0">
     <p>No flights available.</p>
   </div>
 </div>

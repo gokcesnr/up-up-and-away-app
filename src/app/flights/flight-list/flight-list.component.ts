@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Flight } from 'src/app/models/flight';
 import { FlightService } from 'src/app/flight.service';
-import {MatSelectModule} from '@angular/material/select';
-
 
 @Component({
   selector: 'app-flight-list',
@@ -16,8 +14,7 @@ export class FlightListComponent implements OnInit {
   flights: Flight[] = [];
   filteredFlights: Flight[] = [];
   departures: string[] = [];
-  departureSelected: string[] = [];
-
+  departureSelected: string | null = null;
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private flightService: FlightService) {}
 
@@ -25,12 +22,18 @@ export class FlightListComponent implements OnInit {
     this.getFlights();
   }
   
-  getFlights(): void{
-    this.flightService.getFlights()
-    .subscribe((flights: Flight[]) => {this.flights = flights;
-    console.log('Flights:', this.flights);
-    }
-  );
+  getFlights(): void {
+    this.flightService.getFlights().subscribe((flights: Flight[]) => {
+      this.flights = flights;
+      this.filteredFlights = flights;  // Show all flights initially
+      console.log('Flights:', this.flights);
+    });
   }
 
+  onDepartureSelected(departure: string): void {
+    this.departureSelected = departure;
+    this.filteredFlights = this.departureSelected 
+      ? this.flights.filter(flight => flight.departure === this.departureSelected)
+      : this.flights;
+  }
 }

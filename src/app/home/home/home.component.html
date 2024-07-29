@@ -23,7 +23,7 @@
 
     
     <div *ngIf="filteredFlights.length > 0">
-        <h2>Available Flights</h2>
+        <h2 class="" >Available Flights</h2>
         <ul>
           <li *ngFor="let flight of filteredFlights">
             {{ flight.departure }} to {{ flight.landing }} on {{ flight.flightDate | date }} at {{ flight.departureTime }}
@@ -33,8 +33,3 @@
       
   
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-<!-- 
-    <div class="bot-container">
-        <p class="copyright">© Up Up And Away Airlines</p>
-      </div>
- -->
