@@ -4,6 +4,7 @@
   <mat-form-field>
     <mat-label>Your Departure City</mat-label>
     <mat-select (selectionChange)="onDepartureSelected($event.value)" disableRipple>
+      <mat-option value="">All</mat-option>
       <mat-option value="New York">New York</mat-option>
       <mat-option value="Los Angeles">Los Angeles</mat-option>
       <mat-option value="Chicago">Chicago</mat-option>
@@ -37,6 +38,3 @@
   </div>
 </div>
 
-<div class="bot-container">
-  <p class="copyright">© Up Up And Away Airlines</p>
-</div>

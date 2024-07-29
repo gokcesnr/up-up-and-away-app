@@ -46,13 +46,25 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  .bot-container{
-    background-color: #80C4E9;
-    color: white;
-    text-align: center;
-    padding-top: 10pt ;
-    padding-bottom: 3pt;
-    width: 100%;
-    bottom: 0;
-    position: absolute;
+  .header{
+    color: #EF9C66;
+    text-decoration: underline;
+}
+
+mat-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    margin: auto;
+}
+
+mat-card {
+    transition: transform .2s;
+    border-radius: 15pt;
+}
+
+.flight-card{
+    padding-top: 10px;
+    margin-bottom: 40px;
+    width: 600px;
+    height: 300px;
 }

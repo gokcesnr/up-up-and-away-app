@@ -25,7 +25,7 @@ export class FlightListComponent implements OnInit {
   getFlights(): void {
     this.flightService.getFlights().subscribe((flights: Flight[]) => {
       this.flights = flights;
-      this.filteredFlights = flights;  // Show all flights initially
+      this.filteredFlights = flights;  // Show all flights oninit
       console.log('Flights:', this.flights);
     });
   }

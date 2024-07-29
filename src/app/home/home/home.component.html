@@ -21,14 +21,28 @@
     </form>
     </div>
 
-    
-    <div *ngIf="filteredFlights.length > 0">
-        <h2 class="" >Available Flights</h2>
-        <ul>
-          <li *ngFor="let flight of filteredFlights">
-            {{ flight.departure }} to {{ flight.landing }} on {{ flight.flightDate | date }} at {{ flight.departureTime }}
-          </li>
-        </ul>
+    <div class="container ">
+        <div *ngIf="filteredFlights && filteredFlights.length > 0">
+          <div class="flight-card" *ngFor="let flight of filteredFlights">
+            <mat-card appearance="outlined">
+              <mat-card-header>
+                <mat-card-title class="">Departure: {{ flight.departure }} --  Landing: {{ flight.landing }}</mat-card-title>
+                <mat-card-subtitle>
+                  <p>Date: {{ flight.flightDate }}</p>
+                  <p>Duration: {{ flight.flightDuration }}</p>
+                  <p>Departure Time: {{ flight.departureTime }}</p>
+                  <p>Landing Time: {{ flight.landingTime }}</p>
+                </mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-actions align="end">
+                <button mat-button>Buy Ticket</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <div *ngIf="!filteredFlights || filteredFlights.length === 0">
+          <p>No flights available.</p>
+        </div>
       </div>
       
   
