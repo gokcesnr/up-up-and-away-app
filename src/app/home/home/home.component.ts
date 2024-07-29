@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlightService } from 'src/app/flight.service';
 import { Flight } from 'src/app/models/flight';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   filteredFlights: Flight[] = [];
   errorMessage: string | null = null;
 
-  constructor(private flightService: FlightService) {
+  constructor(private flightService: FlightService, private router: Router) {
     this.searchForm = new FormGroup({
       landing: new FormControl('', Validators.required),
       flightDate: new FormControl('', Validators.required), 
@@ -48,4 +49,9 @@ export class HomeComponent implements OnInit {
       this.errorMessage = 'Please fill in the search criteria';
     }
   }
+
+  bookTicket(flightId: number): void{
+    this.router.navigate(['/book-ticket', flightId]);
+  }
+
 }

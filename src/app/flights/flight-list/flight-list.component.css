@@ -25,3 +25,11 @@ mat-card {
     display: flex;
     justify-content: center;
 }
+
+/* .opt-container{
+    color: #EF9C66;
+} */
+
+/* ng::deep .mat-form-field{
+    background-color: antiquewhite;
+} */

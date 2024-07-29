@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { BookTicketComponent } from './book-ticket/book-ticket.component';
 
 
 
@@ -23,7 +24,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   declarations: [
     AppComponent,
     HomeComponent,
-    FlightListComponent
+    FlightListComponent,
+    BookTicketComponent
   ],
   imports: [
     CommonModule,
