@@ -9,6 +9,15 @@ html, body {
     height: 100%;
 }
 
+.tic-but{
+    flex: 1 1 auto;
+}
+
+/* .btn-right{
+    position: right;
+    position: relative;
+} */
+
 .app-container{
     display: flex;
     flex-direction: column;

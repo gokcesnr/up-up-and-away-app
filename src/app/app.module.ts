@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
+import { BookedTicketsComponent } from './booked-tickets/booked-tickets.component';
 
 
 
@@ -25,7 +26,8 @@ import { BookTicketComponent } from './book-ticket/book-ticket.component';
     AppComponent,
     HomeComponent,
     FlightListComponent,
-    BookTicketComponent
+    BookTicketComponent,
+    BookedTicketsComponent
   ],
   imports: [
     CommonModule,

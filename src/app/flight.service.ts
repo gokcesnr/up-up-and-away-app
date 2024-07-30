@@ -34,4 +34,8 @@ export class FlightService {
     const bookignData = { flightId, ...customerData};
     return this.http.post('http://localhost:3000/bookings', bookignData);
   }
+
+  getBookedTickets(): Observable <any[]> {
+    return this.http.get<any[]>('http://localhost:3000/bookings');
+  }
 } 

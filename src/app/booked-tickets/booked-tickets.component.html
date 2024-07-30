@@ -1,0 +1,18 @@
+<div>
+    <h2>Booked Tickets</h2>
+    <div *ngIf="bookedTickets.length > 0; else noTickets">
+      <div *ngFor="let ticket of bookedTickets">
+        <mat-card>
+          <p><strong>Flight ID:</strong> {{ ticket.flightId }}</p>
+          <p><strong>Name:</strong> {{ ticket.name }}</p>
+          <p><strong>ID:</strong> {{ ticket.id }}</p>
+          <p><strong>Phone Number:</strong> {{ ticket.phoneNumber }}</p>
+          <p><strong>Email:</strong> {{ ticket.email }}</p>
+        </mat-card>
+      </div>
+    </div>
+    <ng-template #noTickets>
+      <p>No booked tickets found.</p>
+    </ng-template>
+  </div>
+  
