@@ -50,8 +50,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  bookTicket(flightId: number): void{
-    this.router.navigate(['/book-ticket', flightId]);
+  buyTicket(flight: Flight): void{
+    this.flightService.setSelectedFlight(flight);
+    this.router.navigate(['/book-ticket']);
   }
 
 }

@@ -36,4 +36,9 @@ export class FlightListComponent implements OnInit {
       ? this.flights.filter(flight => flight.departure === this.departureSelected)
       : this.flights;
   }
+
+  buyTicket(flight: Flight): void{
+    this.flightService.setSelectedFlight(flight);
+    this.router.navigate(['/book-ticket']);
+  }
 }
