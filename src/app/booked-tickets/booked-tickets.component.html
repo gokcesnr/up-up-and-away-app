@@ -1,18 +1,20 @@
-<div>
-    <h2>Booked Tickets</h2>
-    <div *ngIf="bookedTickets.length > 0; else noTickets">
-      <div *ngFor="let ticket of bookedTickets">
-        <mat-card>
-          <p><strong>Flight ID:</strong> {{ ticket.flightId }}</p>
-          <p><strong>Name:</strong> {{ ticket.name }}</p>
-          <p><strong>ID:</strong> {{ ticket.id }}</p>
-          <p><strong>Phone Number:</strong> {{ ticket.phoneNumber }}</p>
-          <p><strong>Email:</strong> {{ ticket.email }}</p>
-        </mat-card>
-      </div>
+<!-- booked-tickets.component.html -->
+<div *ngIf="bookedTickets.length > 0; else noTickets">
+    <div *ngFor="let ticket of bookedTickets">
+      <!-- Display ticket information -->
+      <p>Flight ID: {{ ticket.flightId }}</p>
+      <p>Customer Name: {{ ticket.customerName }}</p>
+      <p>Customer ID: {{ ticket.customerId }}</p>
+      <p>Customer Phone: {{ ticket.customerPhone }}</p>
+      <p>Customer Email: {{ ticket.customerEmail }}</p>
+      <p>Departure: {{ ticket.departure }}</p>
+      <p>Landing: {{ ticket.landing }}</p>
+      <p>Flight Date: {{ ticket.flightDate | date }}</p>
+      <p>Departure Time: {{ ticket.departureTime }}</p>
+      <p>Landing Time: {{ ticket.landingTime }}</p>
     </div>
-    <ng-template #noTickets>
-      <p>No booked tickets found.</p>
-    </ng-template>
   </div>
+  <ng-template #noTickets>
+    <p>No booked tickets available.</p>
+  </ng-template>
   
