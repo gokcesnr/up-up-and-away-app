@@ -54,7 +54,7 @@ export class BookTicketComponent implements OnInit {
   } */
   
   generateRandomId(): number {
-    return Math.floor(Math.random() * 1000000); // Generate a random number between 0 and 999999
+    return Math.floor(Math.random() * 1000000); // Generate a random ID
   }
   
   onSubmit(): void {

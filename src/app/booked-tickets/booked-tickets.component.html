@@ -1,7 +1,5 @@
-<!-- booked-tickets.component.html -->
-<div *ngIf="bookedTickets.length > 0; else noTickets">
+<!-- <div *ngIf="bookedTickets.length > 0; else noTickets">
     <div *ngFor="let ticket of bookedTickets">
-      <!-- Display ticket information -->
       <p>Flight ID: {{ ticket.flightId }}</p>
       <p>Customer Name: {{ ticket.customerName }}</p>
       <p>Customer ID: {{ ticket.customerId }}</p>
@@ -16,5 +14,18 @@
   </div>
   <ng-template #noTickets>
     <p>No booked tickets available.</p>
+  </ng-template>
+   -->
+
+   <div *ngIf="bookedTickets.length > 0; else noTickets">
+    <h2>Booked Tickets</h2>
+    <ul>
+      <li *ngFor="let ticket of bookedTickets">
+        Flight ID: {{ticket.flightId}}, Customer Name: {{ticket.customerName}}, Email: {{ticket.customerEmail}}
+      </li>
+    </ul>
+  </div>
+  <ng-template #noTickets>
+    <p>No booked tickets found.</p>
   </ng-template>
   
