@@ -17,8 +17,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { BookedTicketsComponent } from './booked-tickets/booked-tickets.component';
-
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -42,7 +41,8 @@ import { BookedTicketsComponent } from './booked-tickets/booked-tickets.componen
     BrowserAnimationsModule,
     MatCardModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
