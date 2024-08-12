@@ -13,8 +13,8 @@ export class FlightListComponent implements OnInit {
 
   flights: Flight[] = [];
   filteredFlights: Flight[] = [];
-  departures: string[] = [];
-  departureSelected: string | null = null;
+  destinations: string[] = [];
+  destinationSelected: string | null = null;
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private flightService: FlightService, private router: Router) {}
 
@@ -30,10 +30,10 @@ export class FlightListComponent implements OnInit {
     });
   }
 
-  onDepartureSelected(departure: string): void {
-    this.departureSelected = departure;
-    this.filteredFlights = this.departureSelected 
-      ? this.flights.filter(flight => flight.departure === this.departureSelected)
+  onDestinationSelected(destination: string): void {
+    this.destinationSelected = destination;
+    this.filteredFlights = this.destinationSelected 
+      ? this.flights.filter(flight => flight.landing === this.destinationSelected)
       : this.flights;
   }
 

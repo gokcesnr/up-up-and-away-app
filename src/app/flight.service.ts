@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Flight } from './models/flight';
@@ -30,11 +30,6 @@ export class FlightService {
   getSelectedFlight(): Flight | undefined{
     return this.selectedFlight;
   }
-
-/*   bookTicket(flightId: number, customerData: any): Observable<any>{
-    const bookignData = { flightId, ...customerData};
-    return this.http.post('http://localhost:3000/bookings', bookignData);
-  } */
 
   bookTicket(ticket: Ticket): Observable<Ticket> {
     return this.http.post<Ticket>('http://localhost:3000/booked-tickets', ticket);

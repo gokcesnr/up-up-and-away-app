@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private flightService: FlightService, private router: Router) {
     this.searchForm = new FormGroup({
-      landing: new FormControl('', Validators.required),
+      departure: new FormControl('', Validators.required),
       flightDate: new FormControl('', Validators.required), 
     });
   }
@@ -27,15 +27,15 @@ export class HomeComponent implements OnInit {
 
   onSearch() {
     if (this.searchForm.valid) {
-      const { landing, flightDate } = this.searchForm.value;
+      const { departure, flightDate } = this.searchForm.value;
 
       this.flightService.getFlights().subscribe({
         next: (flights: Flight[]) => {
           this.allFlights = flights;
           // Filtering logic
           this.filteredFlights = this.allFlights.filter(flight =>
-            flight.landing.toLowerCase().includes(landing.toLowerCase()) &&
-            (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true) // Add date filtering if required
+            flight.departure.toLowerCase().includes(departure.toLowerCase()) &&
+            (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true)
       );
       this.errorMessage = null;
     },

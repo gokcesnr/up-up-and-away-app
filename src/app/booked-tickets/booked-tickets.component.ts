@@ -12,13 +12,6 @@ export class BookedTicketsComponent implements OnInit {
 
   constructor (private flightService: FlightService){}
 
-/*   ngOnInit(): void {
-    this.getBookedTickets();
-  }
-
-  getBookedTickets(): void{
-    this.flightService.getBookedTickets().subscribe(tickets => this.bookedTickets = tickets);
-  } */
 
   ngOnInit(): void {
     this.loadBookedTickets();

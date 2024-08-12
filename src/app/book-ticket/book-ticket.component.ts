@@ -46,7 +46,7 @@ export class BookTicketComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.flight) {
+    if (this.flight && this.customer.name && this.customer.id && this.customer.phoneNumber && this.customer.email) {
       const ticket: Ticket = {
         id: this.generateRandomId(),
         flightId: this.flight.id,
@@ -60,17 +60,15 @@ export class BookTicketComponent implements OnInit {
         departureTime: this.flight.departureTime,
         landingTime: this.flight.landingTime
       };
+  
       this.flightService.bookTicket(ticket).subscribe(() => {
         console.log('Ticket booked:', ticket);
-        
         this.showSnackBar('Ticket booked successfully!');
-  
-        this.router.navigate(['/booked-tickets']);
       });
+  
+    } else {
+      this.showSnackBar('Please fill out all required fields.');
     }
   }
-  
-  
-
 
 }
