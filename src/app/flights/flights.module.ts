@@ -6,7 +6,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-
+import { PaginatorModule } from 'primeng/paginator'
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    PaginatorModule,
+    DropdownModule
 
   ]
 })

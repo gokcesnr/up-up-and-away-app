@@ -1,44 +1,46 @@
-<div class="container" *ngIf="flight">
-    <h2 class="center header">Ticket for flight {{flight.id}} <br> Boarding: {{flight.departure}}   Landing: {{flight.landing}} </h2>
-    <form (ngSubmit)="onSubmit()">
-        <div class="cont">
-            <label class="label form-label">Flight ID:</label>
-            <input type="text" [value]="flight.id" disabled/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Departure:</label>
-            <input type="text" [value]="flight.departure" disabled/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Landing:</label>
-            <input type="text" [value]="flight.landing" disabled/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Flight Date:</label>
-            <input type="text" [value]="flight.flightDate" disabled/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Boarding Time:</label>
-            <input type="text" [value]="flight.departureTime" disabled/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Name:</label>
-            <input type="text" [(ngModel)]="customer.name" name="name" required/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">ID:</label>
-            <input type="text" [(ngModel)]="customer.id" name="ID" required/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Phone Number:</label>
-            <input type="text" [(ngModel)]="customer.phoneNumber" name="phoneNumber" required/>
-        </div>
-        <div class="cont">
-            <label class="label form-label">Email:</label>
-            <input type="text" [(ngModel)]="customer.email" name="email" required/>
-        </div>
-        <div class="cont">
-            <button class="button" type="submit">Book Ticket</button>
-        </div>
-    </form>
+<div class="body">
+    <div class="container filler" *ngIf="flight">
+        <h2 class="center header">Ticket for flight {{flight.id}} <br> Boarding: {{flight.departure}}   Landing: {{flight.landing}} </h2>
+        <form (ngSubmit)="onSubmit()">
+            <div class="cont">
+                <label class="label form-label">Flight ID:</label>
+                <input type="text" [value]="flight.id" disabled/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Departure:</label>
+                <input type="text" [value]="flight.departure" disabled/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Landing:</label>
+                <input type="text" [value]="flight.landing" disabled/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Flight Date:</label>
+                <input type="text" [value]="flight.flightDate" disabled/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Boarding Time:</label>
+                <input type="text" [value]="flight.departureTime" disabled/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Name:</label>
+                <input type="text" [(ngModel)]="customer.name" name="name" required/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">ID:</label>
+                <input type="text" [(ngModel)]="customer.id" name="ID" required/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Phone Number:</label>
+                <input type="text" [(ngModel)]="customer.phoneNumber" name="phoneNumber" required/>
+            </div>
+            <div class="cont">
+                <label class="label form-label">Email:</label>
+                <input type="text" [(ngModel)]="customer.email" name="email" required/>
+            </div>
+            <div class="cont">
+                <button class="button" type="submit">Book Ticket</button>
+            </div>
+        </form>
+    </div>
 </div>

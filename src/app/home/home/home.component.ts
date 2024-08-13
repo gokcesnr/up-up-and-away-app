@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
       this.flightService.getFlights().subscribe({
         next: (flights: Flight[]) => {
           this.allFlights = flights;
-          // Filtering logic
+
           this.filteredFlights = this.allFlights.filter(flight =>
             flight.departure.toLowerCase().includes(departure.toLowerCase()) &&
             (flightDate ? new Date(flight.flightDate).toDateString() === new Date(flightDate).toDateString() : true)
@@ -40,12 +40,11 @@ export class HomeComponent implements OnInit {
       this.errorMessage = null;
     },
     error: (error: any) => {
-      console.error('Error fetching flights', error);
-      this.errorMessage = 'Error fetching flights';
+      console.error('Error getting the flights', error);
+      this.errorMessage = 'Error getting the flights';
     }
   });
     } else {
-      console.log('Please fill in the search criteria');
       this.errorMessage = 'Please fill in the search criteria';
     }
   }

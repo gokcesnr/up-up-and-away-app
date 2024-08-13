@@ -1,0 +1,31 @@
+.header{
+    color: #EF9C66;
+    text-align: center ;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.headerRow{
+    text-decoration-line: underline;
+    font-size: large;
+    color: darksalmon;
+    text-align: center ;
+
+}
+
+.rowStyle{
+    background-color: rgb(131, 174, 255);
+    color: aliceblue;
+    text-align: center ;
+
+}
+
+.inRow{
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.body{
+    min-height: 100vh
+}

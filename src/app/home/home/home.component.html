@@ -6,7 +6,7 @@
         <div class="form-container">
             <label for="departure" class="label form-label">Departure City:</label>
             <br>
-            <input type="text" name="departure" id="departure" placeholder="From?" formControlName="departure">
+            <input type="text" name="departure" id="departure" placeholder="Miami" formControlName="departure">
         </div>
         <div class="form-container">
             <label for="flightDate" class="label form-label">Take Off Date:  </label>
@@ -44,6 +44,4 @@
           <p>No flights available.</p>
         </div>
       </div>
-      
-  
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>

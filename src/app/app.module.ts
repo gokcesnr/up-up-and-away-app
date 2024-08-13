@@ -18,6 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { BookedTicketsComponent } from './booked-tickets/booked-tickets.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DropdownModule } from 'primeng/dropdown';
+import { PaginatorModule } from 'primeng/paginator';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DropdownModule,
+    PaginatorModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

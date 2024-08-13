@@ -34,11 +34,11 @@ export class BookTicketComponent implements OnInit {
   }
   
   generateRandomId(): number {
-    return Math.floor(Math.random() * 1000000); // Generate a random ID
+    return Math.floor(Math.random() * 1000000);
   }
   
   showSnackBar(message: string): void {
-    this.snackBar.open(message, 'Close', {
+    this.snackBar.open(message, 'Okay', {
       duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
@@ -61,14 +61,13 @@ export class BookTicketComponent implements OnInit {
         landingTime: this.flight.landingTime
       };
   
-      this.flightService.bookTicket(ticket).subscribe(() => {
-        console.log('Ticket booked:', ticket);
+      this.flightService.bookTicket(ticket);
         this.showSnackBar('Ticket booked successfully!');
-      });
-  
+        this.router.navigate(['/flights']);
     } else {
       this.showSnackBar('Please fill out all required fields.');
     }
   }
+
 
 }

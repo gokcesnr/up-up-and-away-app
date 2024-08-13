@@ -5,18 +5,18 @@
     width: 100%;
   }
   
-  .responsive-image {
+.responsive-image {
     width: 100%;
     height: auto;
     display: block;
-  }
+}
 
-  .container{
+.container{
     display: flex;
     justify-content: center;
   }
 
-  .button{
+.button{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
     border-style: hidden;
@@ -26,7 +26,7 @@
     width: 100px;
     height: 50px;
   }
-  .button2{
+.button2{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     border-style: hidden;
     background-color: #ED9455;
@@ -37,7 +37,7 @@
     height: 50px;
   }
 
-  .button:hover{
+.button:hover{
     cursor: pointer;
     transform: scale(1.05);
 }
@@ -46,7 +46,7 @@
   transform: scale(1.05);
 }
   
-  .form-container{
+.form-container{
     padding-top: 20px;
     padding-bottom: 20px;
     position: relative;
@@ -54,13 +54,13 @@
     justify-content: center;
   }
 
-  .label{
+.label{
     margin-top: 3px;
     margin-right: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  .header{
+.header{
     color: #EF9C66;
     text-decoration: underline;
 }

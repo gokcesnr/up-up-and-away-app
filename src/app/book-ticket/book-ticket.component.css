@@ -8,6 +8,8 @@
 .header{
     color: #EF9C66;
     text-decoration: underline;
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 .button{
@@ -19,7 +21,6 @@
     width: 200;
     height: 50px;
     font-size: large;
-
   }
 
   .button:hover{
@@ -31,4 +32,12 @@
     margin-top: 3px;
     margin-right: 5px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .filler{
+    padding-top: 50px;
+  }
+
+  .body{
+    min-height: 100vh
   }

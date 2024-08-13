@@ -8,24 +8,13 @@ import { Ticket } from '../models/ticket';
   styleUrls: ['./booked-tickets.component.css']
 })
 export class BookedTicketsComponent implements OnInit {
+
   bookedTickets: Ticket [] = [];
 
   constructor (private flightService: FlightService){}
 
-
   ngOnInit(): void {
-    this.loadBookedTickets();
-  }
-
-  loadBookedTickets(): void {
-    this.flightService.getBookedTickets().subscribe({
-      next: (tickets: Ticket[]) => {
-        this.bookedTickets = tickets;
-      },
-      error: (error) => {
-        console.error('Error fetching booked tickets:', error);
-      }
-    });
+    this.bookedTickets = this.flightService.getBookedTickets();
   }
 
 }

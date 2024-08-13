@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { Flight } from './models/flight';
 import { Ticket } from './models/ticket';
 
@@ -12,6 +12,7 @@ export class FlightService {
 
   private apiUrl = 'http://localhost:3000';
   private selectedFlight: Flight | undefined;
+  private bookedTickets: Ticket[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -31,18 +32,11 @@ export class FlightService {
     return this.selectedFlight;
   }
 
-  bookTicket(ticket: Ticket): Observable<Ticket> {
-    return this.http.post<Ticket>('http://localhost:3000/booked-tickets', ticket);
+  bookTicket(ticket: Ticket): void{
+    this.bookedTickets.push(ticket);
   }
 
-  getBookedTickets(): Observable <Ticket[]> {
-    return this.http.get<Ticket[]>('http://localhost:3000/booked-tickets');
+  getBookedTickets(): Ticket[]{
+    return this.bookedTickets;
   }
-
-  addBookedTickets(ticket: Ticket): Observable<Ticket> {
-    const headers = new HttpHeaders ({ 'Content-Type': 'application/json'});
-    return this.http.post<Ticket>(this.apiUrl, ticket, {headers});
-  }
-
-
 } 
